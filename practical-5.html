@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie Restaurant</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-orange-500 text-white text-center py-10">
+        <h1 class="text-4xl font-bold">🍴 Foodie Restaurant</h1>
+
+        <p class="text-lg mt-2">
+            Delicious Food • Fresh Ingredients • Happy Moments
+        </p>
+    </header>
+
+
+    <!-- Food Menu Section -->
+    <section class="max-w-6xl mx-auto px-6 py-12">
+
+        <!-- Heading -->
+        <h2 class="text-3xl font-bold text-center text-gray-800">
+            Our Popular Dishes
+        </h2>
+
+        <p class="text-center text-gray-500 mt-2 mb-10">
+            Try our delicious and popular dishes
+        </p>
+
+
+        <!-- Food Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+
+            <!-- Card 1 : Pizza -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden
+                        hover:shadow-2xl hover:-translate-y-2 transition">
+
+                <img
+                    src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80"
+                    alt="Cheese Pizza"
+                    class="w-full h-52 object-cover"
+                >
+
+                <div class="p-5">
+
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-gray-800">
+                            Cheese Pizza
+                        </h3>
+
+                        <span class="text-orange-500 font-bold">
+                            ₹299
+                        </span>
+                    </div>
+
+                    <p class="text-yellow-500 mt-2">
+                        ★★★★★
+                    </p>
+
+                    <p class="text-gray-600 mt-3">
+                        Crispy pizza topped with fresh vegetables,
+                        mozzarella cheese and delicious herbs.
+                    </p>
+
+                    <button
+                        class="bg-orange-500 text-white px-5 py-2
+                               rounded-lg mt-4 hover:bg-orange-600">
+                        Order Now
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Card 2 : Burger -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden
+                        hover:shadow-2xl hover:-translate-y-2 transition">
+
+                <img
+                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+                    alt="Classic Burger"
+                    class="w-full h-52 object-cover"
+                >
+
+                <div class="p-5">
+
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-gray-800">
+                            Classic Burger
+                        </h3>
+
+                        <span class="text-orange-500 font-bold">
+                            ₹199
+                        </span>
+                    </div>
+
+                    <p class="text-yellow-500 mt-2">
+                        ★★★★★
+                    </p>
+
+                    <p class="text-gray-600 mt-3">
+                        Juicy burger with cheese, fresh vegetables
+                        and our special tasty sauce.
+                    </p>
+
+                    <button
+                        class="bg-orange-500 text-white px-5 py-2
+                               rounded-lg mt-4 hover:bg-orange-600">
+                        Order Now
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Card 3 : Pasta -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden
+                        hover:shadow-2xl hover:-translate-y-2 transition">
+
+                <img
+                    src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+                    alt="Creamy Pasta"
+                    class="w-full h-52 object-cover"
+                >
+
+                <div class="p-5">
+
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-gray-800">
+                            Creamy Pasta
+                        </h3>
+
+                        <span class="text-orange-500 font-bold">
+                            ₹249
+                        </span>
+                    </div>
+
+                    <p class="text-yellow-500 mt-2">
+                        ★★★★★
+                    </p>
+
+                    <p class="text-gray-600 mt-3">
+                        Creamy pasta prepared with herbs,
+                        vegetables and fresh ingredients.
+                    </p>
+
+                    <button
+                        class="bg-orange-500 text-white px-5 py-2
+                               rounded-lg mt-4 hover:bg-orange-600">
+                        Order Now
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Card 4 : Sandwich -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden
+                        hover:shadow-2xl hover:-translate-y-2 transition">
+
+                <img
+                    src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80"
+                    alt="Veg Sandwich"
+                    class="w-full h-52 object-cover"
+                >
+
+                <div class="p-5">
+
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-gray-800">
+                            Veg Sandwich
+                        </h3>
+
+                        <span class="text-orange-500 font-bold">
+                            ₹149
+                        </span>
+                    </div>
+
+                    <p class="text-yellow-500 mt-2">
+                        ★★★★☆
+                    </p>
+
+                    <p class="text-gray-600 mt-3">
+                        Fresh vegetables, cheese and tasty sauce
+                        served in crispy toasted bread.
+                    </p>
+
+                    <button
+                        class="bg-orange-500 text-white px-5 py-2
+                               rounded-lg mt-4 hover:bg-orange-600">
+                        Order Now
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Card 5 : Cake -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden
+                        hover:shadow-2xl hover:-translate-y-2 transition">
+
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
+                    alt="Chocolate Cake"
+                    class="w-full h-52 object-cover"
+                >
+
+                <div class="p-5">
+
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-gray-800">
+                            Chocolate Cake
+                        </h3>
+
+                        <span class="text-orange-500 font-bold">
+                            ₹179
+                        </span>
+                    </div>
+
+                    <p class="text-yellow-500 mt-2">
+                        ★★★★★
+                    </p>
+
+                    <p class="text-gray-600 mt-3">
+                        Soft and delicious chocolate cake
+                        with rich creamy frosting.
+                    </p>
+
+                    <button
+                        class="bg-orange-500 text-white px-5 py-2
+                               rounded-lg mt-4 hover:bg-orange-600">
+                        Order Now
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Card 6 : Momos -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden
+                        hover:shadow-2xl hover:-translate-y-2 transition">
+
+                <img
+                    src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=800&q=80"
+                    alt="Veg Momos"
+                    class="w-full h-52 object-cover"
+                >
+
+                <div class="p-5">
+
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-gray-800">
+                            Veg Momos
+                        </h3>
+
+                        <span class="text-orange-500 font-bold">
+                            ₹129
+                        </span>
+                    </div>
+
+                    <p class="text-yellow-500 mt-2">
+                        ★★★★★
+                    </p>
+
+                    <p class="text-gray-600 mt-3">
+                        Soft steamed momos filled with fresh
+                        vegetables and served with spicy chutney.
+                    </p>
+
+                    <button
+                        class="bg-orange-500 text-white px-5 py-2
+                               rounded-lg mt-4 hover:bg-orange-600">
+                        Order Now
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center py-6">
+        <p>
+            © 2026 Foodie Restaurant | Made with ❤️
+        </p>
+    </footer>
+
+</body>
+</html>
