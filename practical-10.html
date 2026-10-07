@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusFix</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <header class="bg-blue-700 text-white">
+        <div class="max-w-6xl mx-auto px-5 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
+
+            <div>
+                <h1 class="text-3xl font-bold">🏫 CampusFix</h1>
+                <p class="text-blue-100">College Issue Reporting Portal</p>
+            </div>
+
+            <span class="bg-blue-600 px-4 py-2 rounded-full text-sm">
+                Student Portal
+            </span>
+
+        </div>
+    </header>
+
+
+    <main class="max-w-6xl mx-auto px-5 py-8">
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
+
+            <div class="bg-white rounded-2xl shadow p-5">
+                <p class="text-gray-500">Total Issues</p>
+                <h2 id="total" class="text-3xl font-bold text-blue-600 mt-2">0</h2>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow p-5">
+                <p class="text-gray-500">Pending</p>
+                <h2 id="pending" class="text-3xl font-bold text-orange-500 mt-2">0</h2>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow p-5">
+                <p class="text-gray-500">Resolved</p>
+                <h2 id="resolved" class="text-3xl font-bold text-green-600 mt-2">0</h2>
+            </div>
+
+        </div>
+
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-7">
+
+            <div class="bg-white rounded-2xl shadow-lg p-6">
+
+                <h2 class="text-2xl font-bold text-gray-800 mb-5">
+                    Report an Issue
+                </h2>
+
+                <div class="space-y-4">
+
+                    <div>
+                        <label class="font-medium">Issue Title</label>
+
+                        <input
+                            id="title"
+                            type="text"
+                            placeholder="Example: Broken classroom light"
+                            class="w-full mt-2 border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+
+                    <div>
+                        <label class="font-medium">Category</label>
+
+                        <select
+                            id="category"
+                            class="w-full mt-2 border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500">
+
+                            <option value="">Select Category</option>
+                            <option>Electricity</option>
+                            <option>Water</option>
+                            <option>Cleanliness</option>
+                            <option>Furniture</option>
+                            <option>Internet</option>
+                            <option>Other</option>
+
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label class="font-medium">Location</label>
+
+                        <input
+                            id="location"
+                            type="text"
+                            placeholder="Example: Block A - Room 204"
+                            class="w-full mt-2 border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+
+                    <div>
+                        <label class="font-medium">Description</label>
+
+                        <textarea
+                            id="description"
+                            rows="4"
+                            placeholder="Describe the problem..."
+                            class="w-full mt-2 border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+
+
+                    <button
+                        onclick="reportIssue()"
+                        class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700">
+
+                        Report Issue
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="lg:col-span-2">
+
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+
+                    <div class="flex flex-col sm:flex-row justify-between gap-4 mb-5">
+
+                        <h2 class="text-2xl font-bold">
+                            Reported Issues
+                        </h2>
+
+                        <select
+                            id="filter"
+                            onchange="displayIssues()"
+                            class="border rounded-lg px-3 py-2">
+
+                            <option value="All">All Issues</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div id="issueList" class="space-y-4"></div>
+
+                    <p
+                        id="empty"
+                        class="text-center text-gray-400 py-10">
+
+                        No issues reported yet.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="text-center text-gray-500 py-6">
+        CampusFix © 2026 | Making Campus Better Together
+    </footer>
+
+
+    <script>
+
+        let issues = [];
+
+
+        function reportIssue() {
+
+            let title = document.getElementById("title").value.trim();
+            let category = document.getElementById("category").value;
+            let location = document.getElementById("location").value.trim();
+            let description = document.getElementById("description").value.trim();
+
+            if (title === "" || category === "" || location === "" || description === "") {
+
+                alert("Please fill all fields.");
+                return;
+
+            }
+
+
+            let issue = {
+
+                title: title,
+                category: category,
+                location: location,
+                description: description,
+                status: "Pending"
+
+            };
+
+
+            issues.push(issue);
+
+
+            document.getElementById("title").value = "";
+            document.getElementById("category").value = "";
+            document.getElementById("location").value = "";
+            document.getElementById("description").value = "";
+
+
+            displayIssues();
+
+            alert("Issue reported successfully!");
+
+        }
+
+
+        function displayIssues() {
+
+            let list = document.getElementById("issueList");
+            let empty = document.getElementById("empty");
+            let filter = document.getElementById("filter").value;
+
+
+            list.innerHTML = "";
+
+
+            let filteredIssues = issues.filter(function(issue) {
+
+                return filter === "All" || issue.status === filter;
+
+            });
+
+
+            if (filteredIssues.length === 0) {
+
+                empty.style.display = "block";
+
+            } else {
+
+                empty.style.display = "none";
+
+            }
+
+
+            filteredIssues.forEach(function(issue) {
+
+                let index = issues.indexOf(issue);
+
+
+                let statusColor = "bg-orange-100 text-orange-700";
+
+
+                if (issue.status === "In Progress") {
+
+                    statusColor = "bg-blue-100 text-blue-700";
+
+                }
+
+
+                if (issue.status === "Resolved") {
+
+                    statusColor = "bg-green-100 text-green-700";
+
+                }
+
+
+                let card = document.createElement("div");
+
+
+                card.className =
+                    "border rounded-xl p-5 hover:shadow-md transition";
+
+
+                card.innerHTML = `
+
+                    <div class="flex flex-col sm:flex-row justify-between gap-3">
+
+                        <div>
+
+                            <h3 class="text-lg font-bold text-gray-800">
+                                ${issue.title}
+                            </h3>
+
+                            <p class="text-sm text-blue-600 mt-1">
+                                ${issue.category}
+                            </p>
+
+                        </div>
+
+                        <span class="${statusColor} px-3 py-1 rounded-full text-sm h-fit">
+                            ${issue.status}
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-gray-600 mt-3">
+                        ${issue.description}
+                    </p>
+
+
+                    <p class="text-sm text-gray-500 mt-3">
+                        📍 ${issue.location}
+                    </p>
+
+
+                    <div class="flex flex-wrap gap-2 mt-4">
+
+                        <button
+                            onclick="changeStatus(${index})"
+                            class="bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700">
+
+                            Change Status
+
+                        </button>
+
+
+                        <button
+                            onclick="deleteIssue(${index})"
+                            class="bg-red-500 text-white px-3 py-2 rounded-lg text-sm hover:bg-red-600">
+
+                            Delete
+
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                list.appendChild(card);
+
+            });
+
+
+            updateStats();
+
+        }
+
+
+        function changeStatus(index) {
+
+            if (issues[index].status === "Pending") {
+
+                issues[index].status = "In Progress";
+
+            }
+
+            else if (issues[index].status === "In Progress") {
+
+                issues[index].status = "Resolved";
+
+            }
+
+            else {
+
+                issues[index].status = "Pending";
+
+            }
+
+
+            displayIssues();
+
+        }
+
+
+        function deleteIssue(index) {
+
+            issues.splice(index, 1);
+
+            displayIssues();
+
+        }
+
+
+        function updateStats() {
+
+            let total = issues.length;
+
+            let pending = issues.filter(
+                issue => issue.status === "Pending"
+            ).length;
+
+            let resolved = issues.filter(
+                issue => issue.status === "Resolved"
+            ).length;
+
+
+            document.getElementById("total").innerText = total;
+
+            document.getElementById("pending").innerText = pending;
+
+            document.getElementById("resolved").innerText = resolved;
+
+        }
+
+
+        displayIssues();
+
+    </script>
+
+</body>
+
+</html>
